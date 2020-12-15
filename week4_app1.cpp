@@ -59,3 +59,28 @@ auto operator"" _radian(long double value)
 //{
 //    return Radian(left.angle + right.angle);
 //}
+
+int main(int argc, char* argv[])
+{
+    auto angle1 = Radian(PI);
+    auto angle2 = Degree(180.0);
+
+    auto angle3 = 90.0_degree;
+    auto angle4 = 6.28_radian;
+
+    print(angle1);
+//    print(angle2); // implicitly creating a Radian from a Degree by compiler
+    print(Radian(angle2));
+    print(angle3);
+    print(angle4);
+
+    auto angle1_4 = angle1 + angle4;
+    print(angle1_4);
+
+    auto angle1_2 = angle1 + angle2; //implicit conversion here for angle2
+//    auto angle1_2 = operator+(angle1, angle2); // free-function only call
+//    auto angle1_2 = angle1.operator+(angle2); // member-function only call
+    print(angle1_2);
+
+    return 0;
+}
